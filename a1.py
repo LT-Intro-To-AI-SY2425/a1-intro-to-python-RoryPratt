@@ -65,8 +65,7 @@ def every_other(lst: List[T]) -> List[T]:
     ans = []
 
     for i in range(len(lst)):
-        if i % 2 == 0:
-            ans.append(lst[i])
+        if i % 2 == 0: ans.append(lst[i])
 
     return ans
 
