@@ -18,6 +18,7 @@ Mr. Berg will look at all your files to determine what you have completed.  If t
 
 2. Describe some similarities and differences that you found between python and other programming languages you have used in the past?
 
-
+I have found that python is extremely unique in the way that it uses colons instead of curly brackets like most other programming languages. I've found that Python also has more packages than other programming languages. 
 
 3. What are some things that you learned through this assignment?
+

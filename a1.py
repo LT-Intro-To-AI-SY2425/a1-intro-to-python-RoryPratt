@@ -1,3 +1,5 @@
+import math
+
 """Assignment 1
 
 Fill in the following function skeletons - descriptions are provided in 
@@ -25,6 +27,8 @@ def absolute(n: int) -> int:
     Returns:
         the absolute value of the passed in number
     """
+    return abs(n)
+
     raise NotImplementedError("absolute")
 
 
@@ -38,6 +42,11 @@ def factorial(n: int) -> int:
     Returns:
         factorial of the passed in number
     """
+    if n <= 1:
+        return 1
+
+    return n * factorial(n - 1)
+
     raise NotImplementedError("factorial")
 
 
@@ -55,6 +64,14 @@ def every_other(lst: List[T]) -> List[T]:
     Returns:
         a list of every of other item in the original list starting with the first
     """
+    ans = []
+
+    for i in range(len(lst)):
+        if i % 2 == 0:
+            ans.append(lst[i])
+
+    return ans
+
     raise NotImplementedError("every_other")
 
 
@@ -68,6 +85,12 @@ def sum_list(lst: List[int]) -> int:
     Returns:
         the sum of the passed in list
     """
+    ans = 0
+
+    for i in lst:
+        ans += i
+    return ans
+
     raise NotImplementedError("sum_list")
 
 
@@ -80,6 +103,8 @@ def mean(lst: List[int]) -> float:
     Returns:
         the mean of the passed in list
     """
+    return sum(lst) / len(lst)
+
     raise NotImplementedError("mean")
 
 
@@ -95,6 +120,10 @@ def median(lst: List[int]) -> float:
     Returns:
         the median of the passed in list
     """
+    lst.sort()
+    
+    return (lst[math.floor(len(lst) / 2)] + lst[round(len(lst) / 2)]) / 2.0
+
     raise NotImplementedError("median")
 
 
@@ -117,6 +146,15 @@ def duck_duck_goose(lst: List[str]) -> List[str]:
     Returns:
         the resulting list after playing duck duck goose
     """
+    i = 0
+    while len(lst) > 2:
+        for item in lst:
+            if (i + 1) % 3 == 0:
+                lst.remove(item)
+                i -= 1
+            i += 1
+    print(lst)
+    return lst
     raise NotImplementedError("duck_duck_goose")
 
 
