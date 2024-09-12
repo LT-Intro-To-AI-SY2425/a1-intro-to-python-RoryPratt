@@ -42,10 +42,8 @@ def factorial(n: int) -> int:
     Returns:
         factorial of the passed in number
     """
-    if n <= 1:
-        return 1
 
-    return n * factorial(n - 1)
+    return 1 if n <= 1 else n * factorial(n - 1)
 
     raise NotImplementedError("factorial")
 
