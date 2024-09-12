@@ -148,12 +148,13 @@ def duck_duck_goose(lst: List[str]) -> List[str]:
     """
     i = 0
     while len(lst) > 2:
-        for item in lst:
+        item = 0
+        while item < len(lst):
             if (i + 1) % 3 == 0:
-                lst.remove(item)
-                i -= 1
+                lst.remove(lst[item])
+                item -= 1
             i += 1
-    print(lst)
+            item += 1
     return lst
     raise NotImplementedError("duck_duck_goose")
 
