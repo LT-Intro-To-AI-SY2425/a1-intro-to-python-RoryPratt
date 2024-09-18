@@ -7,11 +7,11 @@ You are in a treasure hunt on a grid represented by a 2D list.
 """
 
 def hunt(map, x, y):
-    if y >= len(map): return -1
+    if y >= len(map) or x < 0 or y < 0: return -1
     if x >= len(map[y]): return -1
-    if map[y][x] == "T": return 1
+    if map[y][x] == "T": return 0
     if map[y][x] == "X": return -1
-    def miny(x, y): return min(x, y) if x >= 0 and y >= 0 else -1
+    def miny(x, y): return min(x, y) if x >= 0 and y >= 0 else max(x, y)
 
     newmap = map
     newmap[y][x] = "X"
@@ -21,7 +21,7 @@ def hunt(map, x, y):
     min_length = miny(min_length, hunt(newmap, x, y - 1))
     min_length = miny(min_length, hunt(newmap, x - 1, y))
 
-    return (min_length + 1) if min_length >= 0 else max(x, y)
+    return (min_length + 1) if min_length >= 0 else -1
 
 test = [
     ['.', '.', 'X', 'T'],
@@ -29,4 +29,4 @@ test = [
     ['.', '.', '.', '.'],
 ]
 
-print(hunt(test, 0, 0))
+print(hunt(test, 1, 1))
