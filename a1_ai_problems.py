@@ -1,3 +1,5 @@
+import math
+
 # Complete your individualized AI problems here
 """
 You are in a treasure hunt on a grid represented by a 2D list.
@@ -25,8 +27,44 @@ def hunt(map, x, y):
 
 test = [
     ['.', '.', 'X', 'T'],
-    ['X', '.', 'X', '.'],
+    ['X', '.', '.', '.'],
     ['.', '.', '.', '.'],
 ]
 
-print(hunt(test, 1, 1))
+#print(hunt(test, 1, 1))
+
+
+"""
+Write a program to solve a Sudoku puzzle by filling the empty cells. A Sudoku solution must satisfy all of the following rules:
+
+Each of the digits 1-9 must occur exactly once in each row.
+Each of the digits 1-9 must occur exactly once in each column.
+Each of the digits 1-9 must occur exactly once in each of the 9 3x3 sub-boxes.
+"""
+
+def sudoku(l):
+    def cube(l, i):
+        if i>=9: raise "index out of range for cube func"
+        x = i % 3
+        y = math.floor(i / 3) * 3
+
+        return [
+            l[y][x:x+3],
+            l[y + 1][x:x+3],
+            l[y + 2][x:x+3]
+        ]
+    return cube(l, 5)
+
+test = [
+    ['5','3','.','.','7','.','.','.','.'],
+    ['6','.','.','1','9','5','.','.','.'],
+    ['.','9','8','.','.','.','.','6','.'],
+    ['8','.','.','.','6','.','.','.','3'],
+    ['4','.','.','8','.','3','.','.','1'],
+    ['7','.','.','.','2','.','.','.','6'],
+    ['.','6','.','.','.','.','2','8','.'],
+    ['.','.','.','4','1','9','.','.','5'],
+    ['.','.','.','.','8','.','.','7','9']
+]
+
+print(sudoku(test))
