@@ -14,7 +14,7 @@ Mr. Berg will look at all your files to determine what you have completed.  If t
 
 1. What is your initial thoughts about the python programming language?
 
-
+I think that python has a lot of tools but can be slow. python can be very easy to work with.
 
 2. Describe some similarities and differences that you found between python and other programming languages you have used in the past?
 
@@ -22,3 +22,4 @@ I have found that python is extremely unique in the way that it uses colons inst
 
 3. What are some things that you learned through this assignment?
 
+I learned more about python syntax like putting return statements and if statements together.
