@@ -33,38 +33,43 @@ test = [
 
 #print(hunt(test, 1, 1))
 
-
 """
-Write a program to solve a Sudoku puzzle by filling the empty cells. A Sudoku solution must satisfy all of the following rules:
-
-Each of the digits 1-9 must occur exactly once in each row.
-Each of the digits 1-9 must occur exactly once in each column.
-Each of the digits 1-9 must occur exactly once in each of the 9 3x3 sub-boxes.
+Given an array of integers nums and an integer target, 
+return the indices of the two numbers such that they add up to target.
+Assume that each input would have exactly one solution, and you may not use the same element twice.
 """
 
-def sudoku(l):
-    def cube(l, i):
-        if i>=9: raise "index out of range for cube func"
-        x = i % 3
-        y = math.floor(i / 3) * 3
+def prob2(arr, i):
+    ans = {arr[num]: num for num in range(len(arr))}
 
-        return [
-            l[y][x:x+3],
-            l[y + 1][x:x+3],
-            l[y + 2][x:x+3]
-        ]
-    return cube(l, 5)
+    for num in range(len(arr)):
+        if i-arr[num] in ans: return [num, ans[i - arr[num]]]
 
-test = [
-    ['5','3','.','.','7','.','.','.','.'],
-    ['6','.','.','1','9','5','.','.','.'],
-    ['.','9','8','.','.','.','.','6','.'],
-    ['8','.','.','.','6','.','.','.','3'],
-    ['4','.','.','8','.','3','.','.','1'],
-    ['7','.','.','.','2','.','.','.','6'],
-    ['.','6','.','.','.','.','2','8','.'],
-    ['.','.','.','4','1','9','.','.','5'],
-    ['.','.','.','.','8','.','.','7','9']
-]
+#print(prob2([2, 0, 5, 4, 0], 6))
 
-print(sudoku(test))
+"""
+Three sum
+given an integer array nums find all unique triplets in the array which gives the sum of zero
+"""
+
+def prob3(arr):
+    def prob2a(arr, i):
+        ans = set({num for num in arr})
+        ans2 = []
+        for num in arr:
+            if i-num in ans:  ans2.append([num, i - num])
+        return ans2
+    ans = []
+
+    for i in arr:
+        tempy = arr
+        tempy.remove(i)
+        result = prob2a(tempy, -i)
+        if len(result) > 0:
+            for peop in result: 
+                meow = peop + [i]
+                meow.sort()
+                ans.append(meow)
+    return [t for n, t in enumerate(ans) if t not in ans[:n]]
+
+print(prob3([-1, 0, 1, 2, -1, -4]))
